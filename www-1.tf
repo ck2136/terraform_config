@@ -35,10 +35,11 @@ resource "digitalocean_droplet" "www-1" {
       "sudo apt-get install -y docker-ce docker-ce-cli containerd.io",
 
       # Download docker image into VPS and Run the simulation
-      "sudo docker run -dti --name=dt1 ck2136/pmmsknn-test",
+      "sudo docker run -ti --name=dt1 ck2136/pmmsknn-test",
 
       # Copy simulation results from container to VPS (do droplet)
-      "sudo docker cp dt1:/usr/local/src/myscripts/data/sim1_NO_1000.RDS . "
+      "sudo docker cp dt1:/usr/local/src/myscripts/data/sim2_NO_1000.RDS . ",
+      "sudo docker cp dt1:/usr/local/src/myscripts/data/sim2_BCCG_1000.RDS . "
 
       # Copy simulation results from VPS to original remote host
       #"sudo scp sim1_NO_1000.RDS ck1@ipaddress:/home/ck/Downloads/"
