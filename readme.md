@@ -13,7 +13,7 @@ terraform plan -out=terraform.tfplan\
    -var "do_token= ${DO_PAT}" \
    -var "pub_key=$HOME/.ssh/id_rsa.pub" \
    -var "pvt_key=$HOME/.ssh/id_rsa" \
-   -var "ssh_fingerprint=$SSH_FINGERPRINT" \
+   -var "ssh_fingerprint=$SSH_FINGERPRINT" 
 
 
 terraform apply terraform.tfplan
@@ -28,7 +28,7 @@ terraform plan -destroy -out=terraform.tfplan \
    -var "do_token= ${DO_PAT}" \
    -var "pub_key=$HOME/.ssh/id_rsa.pub" \
    -var "pvt_key=$HOME/.ssh/id_rsa" \
-   -var "ssh_fingerprint=$SSH_FINGERPRINT" \
+   -var "ssh_fingerprint=$SSH_FINGERPRINT" 
 
 terraform apply terraform.tfplan
 ```
@@ -39,7 +39,7 @@ After instantiating the droplet, the results of the simulation script will not b
 
 Below is the code to specify in the `www-1.tf` file:
 ```bash
-"sudo scp sim1_BCCG_1000.RDS ck@ipaddress:/home/ck/Downloads/"
+"sudo scp sim1_BCCG_1000.RDS user@ipaddress:/home/user/Downloads/"
 ```
 
-Currently there is no automatic procedure to destroy the instance. One could set up a hook/trigger to do so. If you hav eany ideas please let me know: [Email](mailto:chong.kim@ucdenver.edu)
+One could set up a hook/trigger to automatically destroy the instance after the results have been transferred/stored in the local machine. If you have any ideas please let me know: [Email](mailto:chong.kim@ucdenver.edu)
